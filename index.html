@@ -18,7 +18,7 @@
             var inputArr = input.split('');
             var len = inputArr.length;
             for (var i = 0; i < len; i++) {
-                var index = list.findIndex(item => item.key.toLowerCase() === inputArr[i]);
+                var index = list.findIndex(item => item.key === inputArr[i].toLowerCase());
                 if (index >= 0) {
                     inputArr[i] = list[index].value;
                 }
