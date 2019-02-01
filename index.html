@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Walmart Screening</title>
+    <script>
+        function convertToLeet() {
+            var input= document.getElementById("leetInput").value;
+            var list = [
+                { 'key': 'a', 'value': '4' },
+                { 'key': 'e', 'value': '3' },
+                { 'key': 'i', 'value': '1' },
+                { 'key': 'o', 'value': '0' },
+                { 'key': 's', 'value': '5' },
+                { 'key': 't', 'value': '7' },
+                { 'key': 'b', 'value': '5' }
+            ]
+            var inputArr = input.split('');
+            var len = inputArr.length;
+            for (var i = 0; i < len; i++) {
+                var index = list.findIndex(item => item.key.toLowerCase() === inputArr[i]);
+                if (index >= 0) {
+                    inputArr[i] = list[index].value;
+                }
+            }
+            document.getElementById("leetOutput").innerHTML = inputArr.join('');
+        }
+
+        function charRepeatCount() {
+            var str = document.getElementById("charRepeatInput").value;
+    var s = str.match(/([a-zA-Z])\1*/g) || [];
+    var result = s.map((item) => {
+        return item.charAt(0)+''+item.length;
+    });
+    document.getElementById("charRepeatOutput").innerHTML = result.join('');
+}
+
+    </script>
+</head>
+
+<body>
+    <div id="leet">
+        <h4>Exercise One</h4>
+        <p>Enter the input and click Check Output button</p>
+        <input type="text" id="leetInput" name="leetValue" />
+        <button onclick="convertToLeet()">Check Output</button>
+        <p style="color:red;font-weight:bold;" id="leetOutput"></p>
+    </div>
+    <div id="charRepeat">
+        <h4>Exercise Two</h4>
+        <p>Enter the input and click Check Output button</p>
+        <input type="text" id="charRepeatInput" name="stringValue" />
+        <button onclick="charRepeatCount()">Check Output</button>
+        <p style="color:red;font-weight:bold;" id="charRepeatOutput"></p>
+
+    </div>
+</body>
+
+</html>
